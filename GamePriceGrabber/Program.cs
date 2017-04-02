@@ -10,6 +10,27 @@ namespace GamePriceGrabber
     {
         static void Main(string[] args)
         {
+            bool running = true;
+
+            while (running)
+            {
+                Console.WriteLine("Enter a UPC:");
+                string UPC = Console.ReadLine();
+                UPCLookup lookup = new UPCLookup(UPC);
+                string gameTitle = lookup.getGameTitle();
+                if (gameTitle == null)
+                {
+                    
+                }
+                else
+                {
+                    GameStopSearcher gsSearcher = new GameStopSearcher(gameTitle);
+                    gsSearcher.getGameData();
+                }
+                
+            }
+            
+            
         }
     }
 }
